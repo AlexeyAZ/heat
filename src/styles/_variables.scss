@@ -1,9 +1,31 @@
 $trans: all 0.3s ease;
+$slide-trans: all 0.6s ease;
+
 $side-padding-pc: 30px;
+$side-padding-tablet: 15px;
 $side-padding-mobile: 15px;
-$max-width-value: 1160px;
-$max-width: calc(#{$max-width-value} + 2 * #{$side-padding-pc});
+$max-width: 1100px;
 $min-width: 320px;
+
+$purple: #825bf3;
+
+$orange-light: #ffcc33;
+$orange: #ffbf11;
+$orange-dark: #ff9c00;
+
+$yellow: #ffe57e;
+$yellow-dark: #f9de53;
+
+$pink-light: #f75e7e;
+$pink: #ff585f;
+$pink-dark: #dc394c;
+
+$red-light: #ff3333;
+$red: #d0103a;
+
+$green: #b5e241;
+
+$blue: #00a4c7;
 
 // $color-main--lightest: #CBF3BF;
 // $color-main--lighten:  #ACEF97;

@@ -1,6 +1,8 @@
 doctype html
 
-- var title = 'Project title'
+- var title = 'Project title';
+- var img = "img/";
+- var links = ["http://sib-gurman.ru/production/ready/ready_182.html", "http://sib-gurman.ru/production/ready/ready_181.html", "http://sib-gurman.ru/production/ready/ready_184.html"];
 
 block vars
     
@@ -8,15 +10,16 @@ html
     head
         meta(charset="utf-8")
         meta(name="description", content="")
-        meta(name="viewport", content="width=device-width, initial-scale=1, minimal-ui")
+        //meta(name="viewport", content="width=device-width, initial-scale=1, minimal-ui")
         title #{title}
         link(rel="icon" type="image/png" href="favicon.png" sizes="16x16")
         link(rel="stylesheet", href="styles/vendor.css")
         link(rel="stylesheet", href="styles/main.css")
-    body
-        include ../components/svg
+    body.slide_1
+        //include ../components/svg
         include ../components/header
         block content
-        include ../components/footer
-        script(src="scripts/vendor.js")
-        script(src="scripts/app.js")
+        //include ../components/footer
+        script(defer src="scripts/vendor.js")
+        //script(defer src="https://cdnjs.cloudflare.com/ajax/libs/parallaxify/0.0.2/jquery.parallaxify.js")
+        script(defer src="scripts/app.js")

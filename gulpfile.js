@@ -18,9 +18,13 @@ const localServer = {
 const plugins = {
     js: [
         'bower_components/jquery/dist/jquery.min.js',
+        'bower_components/swiper/dist/js/swiper.min.js',
+        'src/scripts/parallaxify.js',
+        'src/scripts/parallaxscroll.js',
     ],
     css: [
         'bower_components/reset-css/reset.css',
+        'bower_components/swiper/dist/css/swiper.min.css',
     ]
 }
 
@@ -30,8 +34,9 @@ const gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
     pug = require('gulp-pug'),
-    jadeInheritance = require('gulp-jade-inheritance'),
+    pugInheritance  = require('gulp-pug-inheritance'),
     sass = require('gulp-sass'),
+    wait = require('gulp-wait'),
     prefix = require('gulp-autoprefixer'),
     babel = require('gulp-babel'),
     watch = require('gulp-watch'),
@@ -42,7 +47,7 @@ const gulp = require('gulp'),
     typograf = require('gulp-typograf'),
     eslint = require('gulp-eslint'),
     devip = require('dev-ip'),
-    changed = require('gulp-changed');
+    changed = require('gulp-changed'),
     webpack = require("webpack-stream");
 
 console.log("ip list: " + devip()); // show all ip list. Need for browsersynv host option
@@ -59,7 +64,7 @@ gulp.task('browserSync', function() {
 
 
 gulp.task('lint', function () {
-    return gulp.src(folders.src + '/scripts/**/*.js')
+    return gulp.src(folders.src + '/scripts/app.js')
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
@@ -100,9 +105,11 @@ gulp.task('vendor', function () {
 
 gulp.task('pug', function() {
     gulp.src(folders.src + '/views/pages/*.pug')
-        .pipe(changed(folders.dist, {extension: '.html'}))
-        .pipe(jadeInheritance({basedir: folders.src + '/views/'}))
-        .pipe(pug({}))
+        // .pipe(changed(folders.dist, {extension: '.html'}))
+        // .pipe(pugInheritance({basedir: folders.src + '/views/'}))
+        .pipe(pug({
+            pretty: true
+        }))
     .on('error', onError)
     .pipe(gulp.dest(folders.dist))
     .on('end', function(){
@@ -120,6 +127,7 @@ gulp.task('pug', function() {
 
 gulp.task('sass', function () {
     gulp.src(folders.src + '/styles/main.scss')
+    .pipe(wait(500))
     .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(prefix("last 3 version", "> 1%", "ie 8", "ie 7"))

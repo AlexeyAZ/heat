@@ -1,0 +1,21 @@
+- var gallery2Items = ["headphones", "skateboard","guitar"];
+
+section.sec.sec_3
+	div.sec__wrap.sec__wrap_3
+		div.agallery.swiper-container.agallery_3.swiper-no-swiping
+			div.swiper-wrapper
+				each item, index in gallery2Items
+					div.swiper-slide.agallery__slide
+						img(src=img + item + ".png" 
+							alt="" 
+							class="agallery__bg-img_" + (index + 1)
+							data-swiper-parallax=(-300 * (index + 1))).agallery__bg-img
+						div.container.agallery__slide-container
+							a(href=links[index] target="_blank")
+								img(src=img + "sec3-box_" + (index + 1) + ".png" 
+									alt="" 
+									class="agallery__box-img_" + (index + 1)
+									data-swiper-parallax=(-1 * (index + 1))).agallery__box-img
+			div.agallery__arrow.agallery__arrow_left
+			div.agallery__arrow.agallery__arrow_right
+			div.swiper-pagination.agallery__pagination.agallery__pagination_3

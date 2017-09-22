@@ -1,0 +1,92 @@
+.sec {
+	transform: translate3d(0,0,0);
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	
+	&:before {
+		content: "";
+		background-image: linear-gradient(to top, rgba(0,0,0,0.1), rgba(0,0,0,0));
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: 45%;
+		width: 100%;
+	}
+
+	&_1 {
+		background-color: $purple;
+		z-index: 1;
+	}
+
+	&_2 {
+		background-color: black;
+		top: 100%;
+		z-index: 2;
+	}
+
+	&_3 {
+		background-color: red;
+		top: 200%;
+		z-index: 3;
+	}
+
+	&_4 {
+		background-image: url("../img/sec4-bg.png");
+		background-color: $red-light;
+		background-size: cover;
+		background-repeat: no-repeat;
+		top: 300%;
+		z-index: 4;
+
+		&:before {
+			content: none;
+		}
+	}
+
+	&_5 {
+		background-color: $blue;
+		top: 400%;
+		z-index: 5;
+		
+		&:before {
+			content: none;
+		}
+	}
+
+	&_6 {
+		top: 500%;
+		z-index: 6;
+		
+		&:before {
+			content: none;
+		}
+	}
+
+	&__wrap {
+		transition: $slide-trans;
+		height: 100%;
+
+		&_4 {
+			display: flex;
+			align-items: flex-end;
+			justify-content: center;
+
+			img {
+				max-height: 95vh;
+			}
+		}
+		
+		&_5 {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+	
+			img {
+				max-width: 90vw;
+			}
+		}
+	}
+}

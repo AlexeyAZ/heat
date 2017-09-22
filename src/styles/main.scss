@@ -9,7 +9,12 @@
 
 @import "app";
 
+@import "blocks/sec";
+@import "blocks/content";
 @import "blocks/container";
+@import "blocks/gallery";
 
 @import "components/header";
 @import "components/footer";
+
+@import "css/style";

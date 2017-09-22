@@ -3,6 +3,11 @@
 	margin-right: auto;
 	padding-left: $side-padding-pc;
 	padding-right: $side-padding-pc;
-	position: relative;
-	max-width: $max-width;
+	//position: relative;
+	//max-width: $max-width;
+
+	@include media(w1024) {
+		padding-left: $side-padding-tablet;
+		padding-right: $side-padding-tablet;
+	}
 }

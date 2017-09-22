@@ -1,0 +1,18 @@
+- var gallery1Items = [["БЕКОН", "жареники с картофелем и беконом"], ["МЯСО", "чебуречки с мясом"], ["ОГОНЬ", "острые чебуречки"]];
+
+section.sec.sec_1
+	div.sec__wrap.sec__wrap_1
+		div.agallery.swiper-container.agallery_1
+			div.swiper-wrapper
+				each item, index in gallery1Items
+					div.swiper-slide.agallery__slide
+						div.container.agallery__slide-container
+							h2(data-swiper-parallax=(-200 * (index + 1)))
+								=item[0]
+							a(href=links[index] target="_blank")
+								img(src=img + "sec1-box_" + (index + 1) + ".png" alt="" data-swiper-parallax=-1000).agallery__promo-box
+							h4(data-swiper-parallax=(-300 * (index + 1)))
+								=item[1]
+			div.agallery__arrow.agallery__arrow_left
+			div.agallery__arrow.agallery__arrow_right
+			div.swiper-pagination.agallery__pagination.agallery__pagination_1
